@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aashish M. — Full Stack Developer</title>
+  
+  <!-- External Dependencies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body x-data="app()" x-init="init()">
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+
+  <!-- Navigation -->
+  <header class="site-header" x-data="navbar()" x-init="init()" :class="{ 'hidden': isHidden, 'scrolled': isScrolled }">
+    <nav class="nav-container">
+      <a href="#hero" class="logo">AM.</a>
+      <ul class="nav-links">
+        <li><a href="#work" class="nav-link">Work</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <span class="section-number" aria-hidden="true">01</span>
+    <div class="container">
+      <p class="section-label">Full Stack Developer</p>
+      <h1 class="hero-title">
+        Building things<br />
+        <em>for the web.</em>
+      </h1>
+      <p class="hero-description">
+        Hi, I'm <strong>Aashish M.</strong> — I design and engineer full-stack
+        web applications with a focus on clean architecture, great UX, and code that lasts.
+      </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">View Work</a>
+        <a href="#contact" class="btn btn-text">Get in Touch →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Work Section -->
+  <section id="work" class="work">
+    <span class="section-number left">02</span>
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-label">Selected Work</p>
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <p class="section-meta">2022 — Present</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-number">01</span>
+            <a href="#" class="project-link">View →</a>
+          </div>
+          <div class="project-image">
+            <div class="project-icon">A</div>
+          </div>
+          <h3 class="project-title">Project Alpha</h3>
+          <p class="project-description">
+            A full-stack SaaS dashboard with real-time analytics, role-based access control,
+            and a responsive design system built from scratch.
+          </p>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Tailwind</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-number">02</span>
+            <a href="#" class="project-link">View →</a>
+          </div>
+          <div class="project-image accent-bg">
+            <div class="project-icon">B</div>
+          </div>
+          <h3 class="project-title">Project Beta</h3>
+          <p class="project-description">
+            An e-commerce platform with a custom CMS, payment integration, inventory management,
+            and automated email workflows.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">Stripe</span>
+            <span class="tag">Prisma</span>
+            <span class="tag">Redis</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-number">03</span>
+            <a href="#" class="project-link">View →</a>
+          </div>
+          <div class="project-image">
+            <div class="project-icon">G</div>
+          </div>
+          <h3 class="project-title">Project Gamma</h3>
+          <p class="project-description">
+            A REST + GraphQL API serving a mobile app — with auth, caching, rate limiting,
+            and a self-hosted CI/CD pipeline.
+          </p>
+          <div class="project-tags">
+            <span class="tag">GraphQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">AWS</span>
+          </div>
+        </article>
+
+        <!-- Project 4 (Featured) -->
+        <article class="project-card project-card-dark">
+          <div class="project-header">
+            <span class="project-number light">04</span>
+            <a href="#" class="project-link">View →</a>
+          </div>
+          <div class="project-image light-bg">
+            <div class="project-icon">D</div>
+          </div>
+          <h3 class="project-title light">Project Delta</h3>
+          <p class="project-description light">
+            A real-time collaborative tool — websockets, operational transforms, presence indicators,
+            and a tightly typed shared state layer.
+          </p>
+          <div class="project-tags">
+            <span class="tag tag-light">WebSockets</span>
+            <span class="tag tag-light">Svelte</span>
+            <span class="tag tag-light">Go</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <span class="section-number">03</span>
+    <div class="container">
+      <p class="section-label">About</p>
+      <h2 class="section-title">The person<br /><em>behind the code.</em></h2>
+
+      <div class="about-grid">
+        <div class="about-bio">
+          <p>I'm Aashish — a full stack developer with a passion for turning complex problems into elegant, performant software. I care deeply about the craft: clean APIs, thoughtful UI, and systems that scale without drama.</p>
+          <p>I've shipped products across fintech, edtech, and developer tooling — working across the stack from database schema to pixel-perfect front end.</p>
+          <p>When I'm not building, I'm reading about distributed systems, contributing to open source, or hunting for the perfect cup of coffee.</p>
+          
+          <div class="social-links">
+            <a href="https://github.com/sun-ash" target="_blank" class="social-link">GitHub</a>
+            <a href="https://www.linkedin.com/in/aashishsunuwar/" target="_blank" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Resume</a>
+          </div>
+        </div>
+
+        <div class="about-skills">
+          <p class="skills-label">Tech I work with</p>
+          <div class="skills-list">
+            <template x-for="(group, i) in skills" :key="i">
+              <div class="skill-group">
+                <p class="skill-category" x-text="group.label"></p>
+                <div class="skill-items">
+                  <template x-for="skill in group.items" :key="skill">
+                    <span class="tag" x-text="skill"></span>
+                  </template>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <span class="section-number left">04</span>
+    <div class="container">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Let's build<br /><em>something great.</em></h2>
+      <p class="section-description">Open to full-time roles, freelance projects, and interesting conversations.</p>
+
+      <div class="contact-grid">
+        <form class="contact-form" x-data="contactForm()" @submit.prevent="submit">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input x-model="form.name" type="text" placeholder="Your name" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input x-model="form.email" type="email" placeholder="your@email.com" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea x-model="form.message" rows="4" placeholder="Tell me about your project..." class="form-input"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" :disabled="sent">
+            <span x-show="!sent">Send Message</span>
+            <span x-show="sent">Sent ✓</span>
+          </button>
+        </form>
+
+        <div class="contact-info">
+          <div class="info-item">
+            <p class="info-label">Email</p>
+            <a href="mailto:aashishsunuwar527@gmail.com" class="info-value">aashishsunuwar527@gmail.com</a>
+          </div>
+          <div class="info-item">
+            <p class="info-label">Based in</p>
+            <p class="info-value">Dharan, Nepal</p>
+          </div>
+          <div class="info-item">
+            <p class="info-label">Availability</p>
+            <div class="availability">
+              <span class="status-dot"></span>
+              <p class="info-value">Open to opportunities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content grid grid-cols-3">
+      <p class="col-span-1">© 2025 Aashish M. All rights reserved.</p>
+      <p class="col-span-1 text-center">Designed & built with ♥</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+
+  <div class="music-player" x-data="musicPlayer()" x-init="init()">
+  <button @click="toggle()" class="music-btn" :class="{ 'playing': isPlaying }">
+    <span class="music-icon">
+      <template x-if="!isPlaying">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+      </template>
+      <template x-if="isPlaying">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+      </template>
+    </span>
+    <div class="music-waves" x-show="isPlaying">
+      <span></span><span></span><span></span>
+    </div>
+  </button>
+  
+  <audio 
+    x-ref="audio" 
+    loop
+    preload="metadata"
+    @ended="isPlaying = false"
+  >
+    <source src="assets/music/Luv(Sic).mp3" type="audio/mpeg">
+    <!-- Fallback: Use a royalty-free music URL or local file -->
+  </audio>
+</div>
+</body>
+</html>
