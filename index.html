@@ -9,6 +9,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +27,7 @@
   <div id="cursor"></div>
 
   <!-- Navigation -->
-  <header class="site-header" x-data="navbar()" x-init="init()" :class="{ 'hidden': isHidden, 'scrolled': isScrolled }">
+  <header class="site-header" :class="{ 'hidden': isNavHidden, 'scrolled': isNavScrolled }">
     <nav class="nav-container">
       <a href="#hero" class="logo">AM.</a>
       <ul class="nav-links">
@@ -212,32 +215,34 @@
       <p class="section-description">Open to full-time roles, freelance projects, and interesting conversations.</p>
 
       <div class="contact-grid">
-        <form class="contact-form" x-data="contactForm()" @submit.prevent="submit">
+        <!-- Contact Form - Now using the main app() data -->
+        <form class="contact-form" @submit.prevent="submitContact">
           <div class="form-group">
             <label class="form-label">Name</label>
-            <input x-model="form.name" type="text" placeholder="Your name" class="form-input" />
+            <input x-model="contactForm.name" type="text" placeholder="Your name" class="form-input" required />
           </div>
 
           <div class="form-group">
             <label class="form-label">Email</label>
-            <input x-model="form.email" type="email" placeholder="your@email.com" class="form-input" />
+            <input x-model="contactForm.email" type="email" placeholder="your@email.com" class="form-input" required />
           </div>
 
           <div class="form-group">
             <label class="form-label">Message</label>
-            <textarea x-model="form.message" rows="4" placeholder="Tell me about your project..." class="form-input"></textarea>
+            <textarea x-model="contactForm.message" rows="4" placeholder="Tell me about your project..." class="form-input" required></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" :disabled="sent">
-            <span x-show="!sent">Send Message</span>
-            <span x-show="sent">Sent ✓</span>
+          <button type="submit" class="btn btn-primary" :disabled="contactSending || contactSent">
+            <span x-show="!contactSending && !contactSent">Send Message</span>
+            <span x-show="contactSending">Sending...</span>
+            <span x-show="contactSent">Sent ✓</span>
           </button>
         </form>
 
         <div class="contact-info">
           <div class="info-item">
             <p class="info-label">Email</p>
-            <a href="mailto:aashishsunuwar527@gmail.com" class="info-value">aashishsunuwar527@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#ea8b8b9982839982999f849f9d8b98dfd8ddaa8d878b8386c4898587" class="info-value"><span class="__cf_email__" data-cfemail="9ffefeecf7f6ecf7eceaf1eae8feedaaada8dff8f2fef6f3b1fcf0f2">[email&#160;protected]</span></a>
           </div>
           <div class="info-item">
             <p class="info-label">Based in</p>
@@ -264,7 +269,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="script.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
 
   <div class="music-player" x-data="musicPlayer()" x-init="init()">
   <button @click="toggle()" class="music-btn" :class="{ 'playing': isPlaying }">
@@ -289,14 +294,3 @@
   </button>
   
   <audio 
-    x-ref="audio" 
-    loop
-    preload="metadata"
-    @ended="isPlaying = false"
-  >
-    <source src="assets/music/Luv(Sic).mp3" type="audio/mpeg">
-    <!-- Fallback: Use a royalty-free music URL or local file -->
-  </audio>
-</div>
-</body>
-</html>
